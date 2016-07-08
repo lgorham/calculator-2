@@ -32,7 +32,7 @@ def divide(arg_list):
     total = arg_list[0]
 
     for i in arg_list[1:]:
-        total = float(total) / float(i)
+        total = total / i
     return total
 
 def square(arg_list):
@@ -57,8 +57,8 @@ def power(arg_list):
 def mod(arg_list):
     """ return the remainder of num1 divided by any number of successive arguments """
     
-    remainder = arg_list[0]
+    remainder = int(arg_list[0])
 
     for i in arg_list[1:]:
-        remainder = remainder % i
+        remainder = remainder % int(i)
     return remainder

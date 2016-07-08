@@ -17,30 +17,43 @@ def evaluate_function():
     while user_input != 'q':
         user_input = raw_input("Input your prefixed calculation: ")
         tokenized_string = user_input.split(" ")
-        integer_section = tokenized_string[1:]
+        num_section = tokenized_string[1:]
 
-        integer_list = []
-        for i in integer_section:
-            int_form = int(i)
-            # converting to int first because append(int(i)) was returning a string
-            integer_list.append(int_form)
+        num_list = []
+        try:
+            for i in num_section:
+                num_form = float(i)
+                # converting to int first because append(int(i)) was returning a string
+                num_list.append(num_form)
+        except:
+            print "You did not properly enter your calculation: operator followed by operands"
+            continue
+
+        try:
+            test_for_args = num_list[0]
+        except:
+            print "You did not input any arguments"
+            continue
+
 
         if tokenized_string[0] == '+':
-            print add(integer_list)
+            print add(num_list)
         elif tokenized_string[0] == '-':
-            print subtract(integer_list)
+            print subtract(num_list)
         elif tokenized_string[0] == '*':
-            print multiply(integer_list)
+            print multiply(num_list)
         elif tokenized_string[0] == '/':
-            print divide(integer_list)
+            print divide(num_list)
         elif tokenized_string[0] == 'square':
-            print square(integer_list)
+            print square(num_list)
         elif tokenized_string[0] == 'cube':
-            print cube(integer_list)
+            print cube(num_list)
         elif tokenized_string[0] == 'pow':
-            print power(integer_list)
+            print power(num_list)
         elif tokenized_string[0] == 'mod':
-            print mod(integer_list)
+            print mod(num_list)
+        else:
+            print "You did not input a proper operator"
 
 
 
