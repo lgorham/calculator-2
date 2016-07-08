@@ -1,39 +1,64 @@
-def add(num1, num2):
-    """ Add two integers together """
+def add(arg_list):
+    """ Add any number of integers together """
 
-    return num1 + num2
+    total = 0
 
-def subtract(num1, num2):
-    """Subtract num2 from num1"""
+    for i in arg_list:
+        total += i 
+    return total
 
-    return num1 - num2
+def subtract(arg_list):
+    """Subtract any number of numbers from num1"""
 
-def multiply(num1, num2):
-    """ Multiply num1 by num2 """
+    total = arg_list[0]
 
-    return num1 * num2
+    for i in arg_list[1:]:
+        total -= i
+    return total
+   
 
-def divide(num1, num2):
-    """ Divide num1 by num2 """
+def multiply(arg_list):
+    """ Multiply any number of integers together """
+
+    total = 1
+
+    for i in arg_list:
+        total = total * i
+    return total
+
+def divide(arg_list):
+    """ Divide num1 by any number of successive arguments """
     
-    return float(num1) / float(num2)
+    total = arg_list[0]
 
-def square(num1):
+    for i in arg_list[1:]:
+        total = float(total) / float(i)
+    return total
+
+def square(arg_list):
     """squaring num1"""
 
-    return num1**2
+    return arg_list[0]**2
 
-def cube(num1):
+def cube(arg_list):
     """cubing num1"""
 
-    return num1**3
+    return arg_list[0]**3
 
-def power(num1, num2):
-    """ return the value of num1 to the power of num2 """
+def power(arg_list):
+    """ return the value of num1 to the power of any number of successive arguments """
     
-    return num1**num2
+    total = arg_list[0]
 
-def mod(num1, num2):
-    """ return the remainder of num1 divided by num2"""
+    for i in arg_list[1:]:
+        total = total**i
+    return total
+
+def mod(arg_list):
+    """ return the remainder of num1 divided by any number of successive arguments """
     
-    return num1 % num2
+    remainder = arg_list[0]
+
+    for i in arg_list[1:]:
+        remainder = remainder % i
+    return remainder
